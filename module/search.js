@@ -15,7 +15,7 @@ export class Search {
     this.view = view;
     this.view.searchInput.addEventListener(
       "keyup",
-      this.debounce(this.searchRepositories.bind(this), 500)
+      this.debounce(this.searchRepositories.bind(this), 800)
     );
     this.view.loadMore.addEventListener(
       "click",
@@ -26,11 +26,17 @@ export class Search {
 
   // Выполняем поиск при каждом вводе символа в поисковую строку
   searchRepositories() {
-    this.setCurrentPageValue(3);
+    this.setCurrentPageValue(1);
     if (this.view.searchInput.value) {
-      this.api
-        .loadRepositories(this.view.searchInput.value, this.currentPageNumber)
-        .then((response) => this.updateRepositories(response));
+      if (this.view.searchInput.value.length < 3) {
+        alert("Для поиска необходимо ввести более 3 символов");
+      } else {
+        this.api
+          .loadRepositories(this.view.searchInput.value, this.currentPageNumber)
+          .then((response) => {
+            this.updateRepositories(response);
+          });
+      }
     } else {
       this.view.clearRepositories();
       this.view.setRepositoryCounter("");
