@@ -1,0 +1,94 @@
+*, *::before, *::after { box-sizing: border-box; }
+
+.app { padding: 25px; }
+a {
+    color: #000;
+    text-decoration: none;
+}
+.title { text-align: center; }
+
+.search-line {
+    flex-direction: column;
+    display: flex;
+    width: 50%;
+    margin: 0 auto;
+}
+.search-input {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex: 1;
+    margin-bottom: 10px;
+    height: 40px;
+    line-height: 20px;
+    padding: 8px 15px;
+}
+.repositories-wrapper {
+    padding: 0;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.repository {
+    padding-left: 100px;
+    width: 50%;
+
+}
+
+.repository-prev {
+    margin: 10px;
+    align-items: flex-start;
+    gap: 5%;
+    list-style: none;
+    display: flex;
+    /* width: calc(100% / 2 - 20px); */
+}
+
+.repository-prew-image {
+    flex:  0 0 25%;
+    position: relative;
+    min-height: 150px;
+}
+.repository-prev-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.repository-prew-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    font-size: 20px;
+}
+
+.repository-prev-name { 
+    padding-top: 10px;
+    font-weight: 600;
+}
+
+
+.repository-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+}
+.repository-list-item {
+    margin: 5px;
+    list-style-type: none;
+    padding: 0;
+}
+
+.btn {
+    background-color: #ccc;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 40px;
+    line-height: 40px;
+    margin: 50px auto 0;
+    width: 150px;
+}
