@@ -26,7 +26,7 @@ export class Search {
 
   // Выполняем поиск при каждом вводе символа в поисковую строку
   searchRepositories() {
-    this.setCurrentPageValue(1);
+    this.setCurrentPageValue(3);
     if (this.view.searchInput.value) {
       this.api
         .loadRepositories(this.view.searchInput.value, this.currentPageNumber)

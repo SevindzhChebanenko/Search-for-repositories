@@ -21,7 +21,7 @@ export class VIEW {
 
     // Поле поиска
     this.searchLine = this.createElement("div", "search-line");
-    this.searchInput = this.createElement("input", "search-input");
+    this.searchInput = this.createElement("input", "search-input", "required");
     this.repositoriesCounter = this.createElement("span", "counter");
     this.searchLine.append(this.searchInput);
     this.searchLine.append(this.repositoriesCounter);
@@ -40,10 +40,12 @@ export class VIEW {
   }
 
   // Функция для создания элемента
-  createElement(elementName, className) {
+  createElement(elementName, className, attributeName) {
     const element = document.createElement(elementName);
     if (className) {
       element.classList.add(className);
+    } else if (attributeName) {
+      element.setAttribute(attributeName);
     }
     return element;
   }
