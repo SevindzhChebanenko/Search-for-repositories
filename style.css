@@ -34,7 +34,6 @@ a {
     gap: 5%;
     list-style: none;
     display: flex;
-    /* width: calc(100% / 2 - 20px); */
 }
 @media (max-width: 767px) {
 .repository-prev {

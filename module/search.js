@@ -1,10 +1,8 @@
 export class Search {
-  // Получаем текущую страницу поиска
   get currentPageNumber() {
     return this.currentPage;
   }
 
-  // Устанавливаем текущую страницу поиска
   setCurrentPageValue(pageNumber) {
     this.currentPage = pageNumber;
   }
@@ -24,7 +22,6 @@ export class Search {
     this.currentPage = 1;
   }
 
-  // Выполняем поиск при каждом вводе символа в поисковую строку
   searchRepositories() {
     this.setCurrentPageValue(1);
     if (this.view.searchInput.value) {
@@ -43,7 +40,6 @@ export class Search {
     }
   }
 
-  // Подгружаем при нажатии на кнопку "Загрузить еще"
   loadMoreRepositories() {
     this.setCurrentPageValue(this.currentPage + 1);
     this.api
@@ -51,13 +47,11 @@ export class Search {
       .then((response) => this.updateRepositories(response, true));
   }
 
-  // Обновляем текущее состояние
   updateRepositories(response, isUpdate = false) {
     let repositories;
     let repositoriesCount;
     if (response.ok) {
       if (!isUpdate) {
-        // Если новый поиск а не подгрузка, то очищаем ранее найденные репозитории
         this.view.clearRepositories();
       }
       response.json().then((res) => {
@@ -83,7 +77,6 @@ export class Search {
     }
   }
 
-  // Задержка ввода данных для отправки запроса
   debounce(func, wait, immediate) {
     let timeout;
     return function () {
