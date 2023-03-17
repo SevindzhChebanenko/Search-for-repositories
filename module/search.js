@@ -11,10 +11,12 @@ export class Search {
     this.log = log;
     this.api = api;
     this.view = view;
-    this.view.searchInput.addEventListener(
-      "keyup",
-      this.debounce(this.searchRepositories.bind(this), 800)
-    );
+    let a = this.searchRepositories.bind(this);
+    this.view.searchInput.addEventListener("keydown", function (event) {
+      if (event.keyCode === 13) {
+        a();
+      }
+    });
     this.view.loadMore.addEventListener(
       "click",
       this.loadMoreRepositories.bind(this)
